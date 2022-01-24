@@ -216,7 +216,7 @@ triSup l = triSup' (abaixoDiagonal l 0)
     where abaixoDiagonal [] _ = []
           abaixoDiagonal (h:t) x = (take x h) : (abaixoDiagonal t (x + 1))
 
-triSup':: (Ord a, Num a) => Mat a -> Bool
+triSup' :: (Ord a, Num a) => Mat a -> Bool
 triSup' [] = True
 triSup' (h:t)
     | all (== 0) h = triSup' t
