@@ -156,6 +156,7 @@ normaliza l = normaliza' $ juntaPorExpoente l
           l' = sortBy (compare `on` snd) l
 
 normaliza' :: [Polinomio] -> Polinomio
+normaliza' [] = []
 normaliza' [[x]] = [x]
 normaliza' l@(h:t) = (foldr (+) 0 (primeiros h), snd $ head h) : normaliza' t
     where primeiros l = map (fst) l
@@ -174,4 +175,4 @@ ordena l = sortBy (compare `on` snd) l
 
 -- l)
 equiv :: Polinomio -> Polinomio -> Bool
-equiv l l' = ordena $ normaliza l == ordena $ normaliza l'
+equiv l l' = (ordena $ normaliza l) == (ordena $ normaliza l')
