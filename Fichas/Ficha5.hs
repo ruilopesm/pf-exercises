@@ -53,7 +53,7 @@ deleteBy f x (h:t)
 sortOnQuick :: Ord b => (a -> b) -> [a] -> [a]
 sortOnQuick _ [] = []
 sortOnQuick f (h:t) = menores ++ [h] ++ maiores
-    where menores = sortOnQuick f [x | x <- t, f x < f h]
+    where menores = sortOnQuick f [x | x <- t, f x <= f h]
           maiores = sortOnQuick f [x | x <- t, f x > f h]
 
 -- Usa insertion sort
